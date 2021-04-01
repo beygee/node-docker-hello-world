@@ -1,0 +1,25 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "node-volume",
+      "host": { "sourcePath": "/var/app/current/node-app" }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "node-app",
+      "image": "beygee/node-test:0.0.2",
+      "essential": true,
+      "environment": [],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 3000
+        }
+      ],
+      "memory": 128,
+      "mountPoints": [{ "containerPath": "/usr/src/app", "sourceVolume": "node-volume" }]
+    }
+  ]
+}

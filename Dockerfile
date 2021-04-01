@@ -1,8 +1,11 @@
 FROM node:12
 
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
 EXPOSE 3000
 
-COPY ./ ./
+COPY . .
 
 RUN npm install
 RUN npm run build
